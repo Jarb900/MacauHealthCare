@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+<style>
+    body {
+        background-color: #cce7ff;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    h2 {
+        color: #003366;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 20px;
+        font-family: "Poppins", sans-serif;
+    }
+    .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+    }
+    .appointment-container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+</style>
+{% block content %}
+<div class="center-content">
+    <div class="appointment-container">
+        <h2>My Appointments</h2>
+
+        {% if appointments %}
+            <ul>
+                {% for appointment in appointments %}
+                    <li>
+                        Patient: {{ appointment.patient.user.get_full_name }}: {{ appointment.date }} | {{ appointment.time }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no appointments.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

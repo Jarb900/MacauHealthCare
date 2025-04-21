@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}P2312345 MHC Clinic{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .sidebar-nav {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .sidebar-nav li {
+            margin: 0 20px;
+        }
+
+        .sidebar-nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .sidebar-nav a:hover {
+            color: #0055cc;
+            text-decoration: underline;
+        }
+        .login-link {
+            color: #657380;
+            font-weight: bold;
+            position: absolute;
+            top: 0px;
+            right: 10px;
+        }
+        .login-link a{
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .login-link a:hover {
+            color: #0055cc;
+            text-decoration: underline;
+        }
+        .add-appointment {
+            color: #657380;
+            font-weight: bold;
+            position: absolute;
+            top: 100px;
+            right: 5px;
+        }
+        .add-appointment button{
+            background-color: #003366;
+            color: #cce7ff;
+            border-radius: 4px;
+        }
+        .add-appointment a{
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .add-appointment a:hover {
+            color: #0055cc;
+        }
+        .logout-link {
+            float: right;
+            margin-right: 0px;
+        }
+        .my-appointment {
+            color: #657380;
+            font-weight: bold;
+            position: absolute;
+            top: 130px;
+            right: 5px;
+        }
+        .my-appointment button{
+            background-color: #657380;
+            color: #cce7ff;
+            border-radius: 4px;
+        }
+        .my-appointment a{
+            color: #657380;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .my-appointment a:hover {
+            color: #0055cc;
+        }
+    </style>
+</head>
+<body>
+    {% block sidebar %}
+    <ul class="sidebar-nav">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'doctor_list' %}">Doctor’s Page</a></li>
+        {% if user.is_authenticated and user.doctor %}
+        <li><a href="{% url 'patient_list' %}">Patient’s Page</a></li>
+        {% endif %}
+        <li><a href="{% url 'available_appointments' %}">Available Appointments</a></li>
+    </ul>
+    {% endblock %}
+    <ul class="login-link">
+        {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        {% if user.is_authenticated and user.is_doctor %}
+            <p>Welcome, Dr. {{ user.first_name }} {{ user.last_name }}!</p>
+            <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+            <a href="{% url 'add_appointment' %}" class="add-appointment">Add Appointment</a>
+            <a href="{% url 'my_appointment' %}" class="my-appointment">My Appointments</a>
+        {% elif user.is_authenticated and user.is_patient %}
+            <p>Welcome, {{ user.first_name }} {{ user.last_name }}!</p>
+            <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+            <a href="{% url 'book_appointment' doctor.id %}">Book Appointment</a>
+            <a href="{% url 'my_appointment' %}" class="my-appointment">My Appointments</a>
+        {% elif %]
+            <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+        {% endif %}
+    </ul>
+    <div class="center-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

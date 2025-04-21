@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #cce7ff;
+    }
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+    }
+    .appointment-form {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: white;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .appointment-form h2 {
+        color: #003366;
+        font-size: 18px;
+        font-weight: normal;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .appointment-form label {
+        display: block;
+        color: #003366;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .appointment-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    .appointment-form button {
+        background-color: #003366;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .appointment-form button:hover {
+        background-color: #0055cc;
+    }
+</style>
+<div class = "form-container">
+    <div class = "appointment-form">
+        <h2>Add Appointment</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Appointment</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

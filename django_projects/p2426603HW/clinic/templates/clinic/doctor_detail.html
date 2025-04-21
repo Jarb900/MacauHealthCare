@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #cce7ff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #003366;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+        h2 {
+            color: #003366;
+            margin-top: 30px;
+            margin-left: 410px;
+            font-family: "Poppins", sans-serif;
+        }
+        .detail {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin-left: 410px;
+        }
+        .detail li {
+            margin: 10px 0;
+            text-align: left;
+            margin-left: 20px;
+            margin-top: 0px;
+        }
+        form {
+            margin-left: 410px;
+            margin-top: 20px;
+        }
+        .submit-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+    <h1>Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h1>
+    <h2>Appointments:</h2>
+
+{% if user.is_authenticated and user.is_patient %}
+    <h2>Available Appointments</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="appointment_id">Choose a slot:</label>
+    <select name="appointment_id" id="appointment_id">
+        {% for appointment in appointments %}
+            <option value="{{ appointment.id }}">
+                {{ appointment.date }} at {{ appointment.time }}
+            </option>
+        {% endfor %}
+    </select>
+        <button type="submit">Book</button>
+    </form>
+{% else %}
+    <ul class="detail">
+        {% for appointment in appointments %}
+            <li>
+                Date: {{ appointment.date }} | Time: {{ appointment.time }} | Status: {{ appointment.get_status_display }}
+            </li>
+        {% empty %}
+            <p>No available appointments.</p>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

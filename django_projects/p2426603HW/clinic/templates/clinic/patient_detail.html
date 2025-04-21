@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #cce7ff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #003366;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+        h2 {
+            color: #003366;
+            margin-top: 30px;
+            margin-left: 410px;
+            font-family: "Poppins", sans-serif;
+        }
+        .detail {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin-left: 410px;
+        }
+        .detail li {
+            margin: 10px 0;
+            text-align: left;
+            margin-left: 20px;
+            margin-top: 0px;
+        }
+    </style>
+    <h1>{{ patient.user.first_name }} {{ patient.user.last_name }}</h1>
+    <h2>Appointments:</h2>
+    <ul class="detail">
+        {% for appointment in appointments %}
+            <li>
+                Doctor: {{ appointment.doctor.user.last_name }}, {{ appointment.doctor.user.first_name }} |
+                Date: {{ appointment.date }} | Time: {{ appointment.time }}
+            </li>
+        {% empty %}
+            <p>No appointments scheduled.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
