@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #cce7ff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #657380;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+        h2 {
+            color: #003366;
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+        .appointment {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin-top: 30px;
+            margin-left: 410px;
+        }
+
+        .appointment li {
+            margin: 10px 0;
+            color: #657380;
+            text-align: left; /* Aligns the text to the left */
+            margin-left: 20px; /* Moves the list more to the left */
+        }
+
+        .appointment a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .appointment a:hover {
+            color: #0055cc;
+            text-decoration: underline;
+        }
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #003366;
+        }
+        .pagination a:hover {
+            color: #0055cc;
+            text-decoration: underline;
+        }
+        .pagination .current {
+            margin: 0 5px;
+            color: #657380;
+            font-weight: bold;
+        }
+    </style>
+    <h1>Welcome to the Macau Health Care Clinic</h1>
+    <h2>Available Appointments</h2>
+    <ul class="appointment">
+        {% for appointment in object_list %}
+            <li>
+                Doctor: {{ appointment.doctor.user.last_name }}, {{ appointment.doctor.user.first_name }} |
+                Date: {{ appointment.date }} | Time: {{ appointment.time }}
+            </li>
+        {% empty %}
+            <p>No available appointments at the moment.</p>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

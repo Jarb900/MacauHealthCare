@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #cce7ff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #003366;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+        .patients {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin-top: 30px;
+            margin-left: 410px;
+        }
+
+        .patients li {
+            margin: 10px 0;
+            text-align: left; /* Aligns the text to the left */
+            margin-left: 20px; /* Moves the list more to the left */
+        }
+
+        .patients a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .patients a:hover {
+            color: #0055cc;
+            text-decoration: underline;
+        }
+    </style>
+    <h1>Patients List</h1>
+    <ul class="patients">
+        {% for patient in patients %}
+            <li>
+                <a href="{% url 'patient_detail' patient.id %}">
+                    {{ patient.user.last_name }}, {{ patient.user.first_name }}
+                </a>
+            </li>
+        {% empty %}
+            <p>No patients available.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
