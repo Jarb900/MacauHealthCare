@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+
+    <style>
+        /* Background color */
+        body {
+            background-color: gray;
+            color: #7393B3;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style headers */
+        h1 {
+            color: #0047AB;
+            text-align: center;
+        }
+
+        h2 {
+            color: #D70040;
+        }
+
+        /* Style paragraphs */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Center the content */
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+        {% block content %}
+    <div class="container">
+        <h1>Welcome to My Blog</h1>
+        <h2>Blog Posts</h2>
+    {% if posts %}
+    <ul class="post-list">
+        {% for post in posts %}
+        <li class="post-item">
+            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+            <small>{{ post.created_at|date:"F j, Y" }}</small>
+            {% if post.author %}
+            <p class="author" style="font-size: 13px; color: #B04A7A;">
+                <strong>Author:</strong> {{ post.author }}
+            </p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No posts available.</p>
+    {% endif %}
+</div>
+{% endblock content %}
+</body>
+</html>
+
+
+
