@@ -7,6 +7,12 @@
 
 ---
 
+## 📹 Demo
+
+![video](https://youtu.be/7PM9Q8Fbbcs)
+
+---
+
 ## 🎯 Purpose of the Software
 
 This project is a simple yet functional **Appointment Booking System** designed to allow patients to book available appointment slots with doctors.
