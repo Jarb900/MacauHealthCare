@@ -56,6 +56,26 @@ We followed an Agile model with:
 | 3    | Booking logic, UI templates               |
 | 4    | README, demo video, deployment            |
 
+---
+
+##🚧 Current Status
+Login & Registration ✅
+
+Doctor creates slots ✅
+
+Patient books slots ✅
+
+Data saved to DB ✅
+
+##🚀 Future Plan
+Add notifications via email
+
+Admin dashboard for user/slot overview
+
+Calendar-based interface
+
+---
+
 ### ⚙️ Algorithm (Simplified)
 
 ```python
