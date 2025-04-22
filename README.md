@@ -35,10 +35,10 @@ We followed an Agile model with:
 
 | Name        | Role            | Responsibilities                      | Contribution (%) |
 |-------------|-----------------|----------------------------------------|------------------|
-| P2426603    | Backend Developer | Models, Views, Appointment Logic       | 25%              |
+| P2426595    | Backend Developer | Models, Views, Appointment Logic       | 25%              |
 | P2426616    | Frontend Developer | HTML Templates, CSS, UI Design         | 25%              |
 | P2304171    | QA & Integration | Route Testing, Booking Flow, Bug Fixes | 25%              |
-| P2426595   | Documentation & Video | README, Graphical Abstract, Demo Video | 25%              |
+| P2426603   | Documentation & Video | README, Graphical Abstract, Demo Video | 25%              |
 
 ### 🗓 Development Schedule
 
