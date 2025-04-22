@@ -1,7 +1,8 @@
 # Macau Health Care
 
 ## 🖼️ Graphical Abstract
-> ![Graphical Abstract]<blockquote class="imgur-embed-pub" lang="en" data-id="a/GVMikfx"  ><a href="//imgur.com/a/GVMikfx">Booking System</a></blockquote>
+> ![image](https://github.com/user-attachments/assets/d589e297-c095-474f-9efd-7e014e8579db)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/GVMikfx"  ><a href="//imgur.com/a/GVMikfx">Booking System</a></blockquote>
 *A visual summary of how users interact with the system: Patients → Book → Doctors → Add availability*
 
 ---
