@@ -58,7 +58,7 @@ We followed an Agile model with:
 
 ---
 
-##🚧 Current Status
+## 🚧 Current Status
 Login & Registration ✅
 
 Doctor creates slots ✅
@@ -67,7 +67,7 @@ Patient books slots ✅
 
 Data saved to DB ✅
 
-##🚀 Future Plan
+## 🚀 Future Plan
 Add notifications via email
 
 Admin dashboard for user/slot overview
