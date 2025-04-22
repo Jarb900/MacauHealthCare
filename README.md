@@ -74,6 +74,8 @@ Admin dashboard for user/slot overview
 
 Calendar-based interface
 
+Patient and Doctor details
+
 ---
 
 ### ⚙️ Algorithm (Simplified)
