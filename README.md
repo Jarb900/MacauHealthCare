@@ -9,7 +9,7 @@
 
 ## 📹 Demo
 
-![video](https://youtu.be/7PM9Q8Fbbcs)
+[Demo Video](https://youtu.be/7PM9Q8Fbbcs)
 
 ---
 
