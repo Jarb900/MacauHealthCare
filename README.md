@@ -5,13 +5,9 @@
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/GVMikfx"  ><a href="//imgur.com/a/GVMikfx">Booking System</a></blockquote> 
 *A visual summary of how users interact with the system: Patients → Book → Doctors → Add availability*
 
----
-
 ## 📹 Demo
 
 [Demo Video](https://youtu.be/7PM9Q8Fbbcs)
-
----
 
 ## 💻 Development Environment
 
