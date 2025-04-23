@@ -20,6 +20,14 @@ Framework	Django 4.2
 DB	SQLite (default Django DB)
 Platform	pythonanywhere.com
 
+| Component   | Details                    |
+|-------------|----------------------------|
+| Language    | Python 3.10                |
+| Framework   | Django 4.2                 |
+| DB          | SQLite (default Django DB) |
+| Platform    | pythonanywhere.com         |
+
+
 ---
 
 ## 🎯 Purpose of the Software
