@@ -13,6 +13,15 @@
 
 ---
 
+## 💻 Development Environment
+Component	Details
+Language	Python 3.10
+Framework	Django 4.2
+DB	SQLite (default Django DB)
+Platform	pythonanywhere.com
+
+---
+
 ## 🎯 Purpose of the Software
 
 This project is a simple yet functional **Appointment Booking System** designed to allow patients to book available appointment slots with doctors.
